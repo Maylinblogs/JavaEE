@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+    <h:form>
+        <title>Work with City</title>
+    </h:form>
+    <h:dataTable value="#{customerController.allCustomers()}" var="emp" border="1">
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Id"/>
+            </f:facet>
+            <h:outputText value="#{emp.customerId}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="First Name"/>
+            </f:facet>
+            <h:outputText value="#{emp.name}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Middle Name"/>
+            </f:facet>
+            <h:outputText value="#{emp.surname}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Email"/>
+            </f:facet>
+            <h:outputText value="#{emp.email}"/>
+        </h:column>
+    </h:dataTable>
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Id: "/>
+            <h:inputText value="#{customerController.id}"/>
+        </h:panelGrid>
+        <h:commandButton value="Delete Customer"
+                         action="#{customerController.deleteCustomer()}"/>
+    </h:form>
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Id : "/>
+            <h:inputText value="#{customerController.customer.customerId}"/>
+            <h:outputLabel value="First Name : "/>
+            <h:inputText value="#{customerController.customer.name}"/>
+            <h:outputLabel value="Middle Name :"/>
+            <h:inputText value="#{customerController.customer.surname}"/>
+            <h:outputLabel value="Email : "/>
+            <h:inputText value="#{customerController.customer.email}"/>
+        </h:panelGrid>
+        <h:commandButton value="Add New Customer"
+                         action="#{customerController.addCustomer()}"/>
+        <h:commandButton value="Update Customer"
+                         action="#{customerController.updateCustomer()}"/>
+    </h:form>
+
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Id: #{customerController.customerSearch.customerId}"/>
+            <h:outputLabel value="Name: #{customerController.customerSearch.name}"/>
+            <h:outputLabel value="Surname: #{customerController.customerSearch.surname}"/>
+            <h:outputLabel value="Email: #{customerController.customerSearch.email}"/>
+            <h:inputText value="#{customerController.id}"/>
+        </h:panelGrid>
+        <h:commandButton value="Search Customer"
+                         action="#{customerController.searchCustomer()}"/>
+    </h:form>
+</h:body>
+
+<h:form>
+    <title>Work with City</title>
+</h:form>
+<h:body>
+    <h:dataTable value="#{cityController.allCities()}" var="emp" border="1">
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Id"/>
+            </f:facet>
+            <h:outputText value="#{emp.cityId}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value=" Name"/>
+            </f:facet>
+            <h:outputText value="#{emp.name}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Country Name"/>
+            </f:facet>
+            <h:outputText value="#{emp.country}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="People"/>
+            </f:facet>
+            <h:outputText value="#{emp.people}"/>
+        </h:column>
+    </h:dataTable>
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel value=" Id :"/>
+            <h:inputText value="#{cityController.city.cityId}"/>
+            <h:outputLabel value=" Name :"/>
+            <h:inputText value="#{cityController.city.name}"/>
+            <h:outputLabel value="Country Name : "/>
+            <h:inputText value="#{cityController.city.country}"/>
+            <h:outputLabel value="People : "/>
+            <h:inputText value="#{cityController.city.people}"/>
+        </h:panelGrid>
+        <h:commandButton value="Add New City"
+                         action="#{cityController.addCity()}"/>
+        <h:commandButton value="Update City"
+                         action="#{cityController.updateCustomer()}"/>
+    </h:form>
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Id: "/>
+            <h:inputText value="#{cityController.id}"/>
+        </h:panelGrid>
+        <h:commandButton value="Delete City"
+                         action="#{cityController.deleteCustomer()}"/>
+    </h:form>
+
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Id: #{cityController.citySearch.cityId}"/>
+            <h:outputLabel value="Name: #{cityController.citySearch.name}"/>
+            <h:outputLabel value="Surname: #{cityController.citySearch.country}"/>
+            <h:outputLabel value="people: #{cityController.citySearch.people}"/>
+            <h:inputText value="#{cityController.id}"/>
+        </h:panelGrid>
+        <h:commandButton value="Search City"
+                         action="#{cityController.searchCustomer()}"/>
+    </h:form>
+</h:body>
+</html>
